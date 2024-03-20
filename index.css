@@ -107,10 +107,10 @@ footer {
     p{
       display: flex;
       text-justify: auto;
-      padding:10px 40px 10px 20px;
+      padding:0px 60px 0px 20px;
       border-radius:5px;
     }
     button {
-        padding:10px 10px 10px 10px;
+        padding:20px 10px 20px 10px;
     }
   }
