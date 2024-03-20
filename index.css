@@ -96,3 +96,20 @@ button {
 footer {
     text-align: center;
 }
+@media only screen and (max-width: 600px) {
+    .count{
+      display:flex;
+      flex-direction: column;
+      width:40%;
+      margin:auto;
+    }
+    p{
+      display: flex;
+      text-justify: auto;
+      padding:0px 20px 0px 20px;
+      border-radius:5px;
+    }
+    button {
+        padding:10px 10px 10px 10px;
+    }
+  }
