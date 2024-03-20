@@ -95,11 +95,32 @@ function count() {
     document.getElementById("mark").innerHTML = markcount;
     document.getElementById("unmark").innerHTML = unmarkcount;
 }
-function hide() {
-    var hide = document.createElement("span");
-    hide.textcontent = "hide";
-    deleteButton.classList.add("hide-button");
-    hide.addEventListener('click',function(){
-         
-    })
+var hide = false;
+var btn= document.getElementById("btn");
+btn.addEventListener('click', function(){
+    hide? show_all():hidden();
+})
+
+function hidden() {
+    let list = document.getElementById("list").getElementsByTagName("li");
+    document.getElementById("btn").textContent = "Show All";
+    for(let i =0; i<list.length;i++) {
+        if(list[i].classList.contains("marked")) {
+            list[i].style.display = "none";
+        }
+        else {
+            list[i].style.display = "block";
+        }
+    }
+    hide = true;
 }
+
+function show_all() {
+    let list = document.getElementById("list").getElementsByTagName("li");
+    document.getElementById("btn").textContent = "Hide Marked";
+    for(let i =0; i<list.length;i++) {
+            list[i].style.display = "block";
+        }
+    hide = false;
+    }
+
