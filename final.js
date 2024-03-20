@@ -122,5 +122,4 @@ function show_all() {
             list[i].style.display = "block";
         }
     hide = false;
-    }
-
+}
