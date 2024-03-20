@@ -1,0 +1,105 @@
+class shoppingItem{
+    constructor(description){
+        this.description = description;
+        this.done = false;
+        this.deleted = false;
+    }
+    setDescrption(description){
+        this.description = description;
+    }
+    setDone(status) {
+        this.done = status;
+    }
+    setDelete(status) {
+        this.deleted = status;
+    }
+    getdescription() {
+        return this.description;
+    }
+}
+
+var key = document.getElementById("item");
+
+const itemList = [];
+
+key.addEventListener('keydown', function(event){
+    if (event.key === 'Enter'){
+    var description = document.getElementById("item").value.trim();
+    console.log(description);
+    document.getElementById("item").value ="";
+    document.getElementById("item").placeholder ="Enter item";
+    if (description == "") {
+        alert("Please enter an item!");}
+    else {
+        const newItem = new shoppingItem(description);
+        itemList.push(newItem);
+        console.log(itemList);
+        render(newItem);
+        }
+    }
+});
+
+function addItem() { 
+    var description = document.getElementById("item").value;
+    if (description == "") {
+        alert("Please enter an item!");}
+    else {
+        const newItem = new shoppingItem(description);
+        itemList.push(newItem);
+        console.log(itemList);
+        render(newItem);
+  }
+}
+
+function render(item) {
+    if (!item.deleted) {
+        var listItem = document.createElement("li");
+        listItem.classList.add("list");  
+        var deleteButton = document.createElement("span");
+        deleteButton.textContent = "X";
+        deleteButton.classList.add("delete-button");
+        deleteButton.addEventListener('click', function() {
+            item.setDelete(true); 
+            listItem.remove(); 
+            count();
+        });
+        listItem.addEventListener('click', function(){
+            let status=item.done;
+            item.setDone(!status);
+            listItem.classList.toggle("marked");
+            count();
+        })
+        var ulList = document.getElementById("list");
+        listItem.textContent = item.getdescription();
+        listItem.appendChild(deleteButton);
+        ulList.appendChild(listItem);
+        console.log(listItem);
+        count();
+
+    }
+}
+function count() {
+    let markcount = 0;
+    let unmarkcount = 0;
+    let list = document.getElementById("list").getElementsByTagName("li");
+    for (let index = 0; index < list.length; index++) {
+        if(list[index].classList.contains("marked")) {
+            markcount++;
+        }
+        else {
+            unmarkcount++;
+        }
+    }
+    console.log(markcount);
+    console.log(unmarkcount);
+    document.getElementById("mark").innerHTML = markcount;
+    document.getElementById("unmark").innerHTML = unmarkcount;
+}
+function hide() {
+    var hide = document.createElement("span");
+    hide.textcontent = "hide";
+    deleteButton.classList.add("hide-button");
+    hide.addEventListener('click',function(){
+         
+    })
+}
