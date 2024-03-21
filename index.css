@@ -94,7 +94,7 @@ button {
     text-decoration: line-through;
 
 }
-footer {
+.footer {
     text-align: center;
 }
 @media only screen and (max-width: 600px) {
@@ -104,17 +104,26 @@ footer {
       width:40%;
       margin:auto;
     }
-    p{
+    .para{
       display: flex;
       text-justify: auto;
-      padding:0px 120px 0px 10px;
+      padding:0px 150px 0px 0px;
       border-radius:5px;
     }
     button {
         padding:20px 10px 20px 10px;
     }
-    footer {
-        /* text-align: center; */
-        margin-left: 20%;
+    .footer {
+        text-align: center; 
+        margin: 0%;
+    }
+    .markdiv {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 20px;
+        margin-right: 25px;
+        background-color: white;
     }
   }
