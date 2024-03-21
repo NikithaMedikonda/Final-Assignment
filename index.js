@@ -31,6 +31,12 @@ key.addEventListener('keydown', function(event){
     if (description == "") {
         alert("Please enter an item!");}
     else {
+        for (var i = 0; i < itemList.length; i++) {
+            if (description === itemList[i].description ) {
+                alert("Item already exists in the list!");
+                return;
+            }
+        }
         const newItem = new shoppingItem(description);
         itemList.push(newItem);
         console.log(itemList);
@@ -41,15 +47,17 @@ key.addEventListener('keydown', function(event){
 
 function addItem() { 
     var description = document.getElementById("item").value;
-    if (description == "") {
-        alert("Please enter an item!");}
+    if (description === "") {
+        alert("Please enter an item!");
+    }
     else {
         const newItem = new shoppingItem(description);
         itemList.push(newItem);
         console.log(itemList);
         render(newItem);
+    }
   }
-}
+
 
 function render(item) {
     if (!item.deleted) {
@@ -75,7 +83,6 @@ function render(item) {
         ulList.appendChild(listItem);
         console.log(listItem);
         count();
-
     }
 }
 function count() {
