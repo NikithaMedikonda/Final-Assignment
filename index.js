@@ -31,10 +31,11 @@ key.addEventListener('keydown', function(event){
     if (description == "") {
         alert("Please enter an item!");}
     else {
+        var a = description.toLowerCase();
         for (var i = 0; i < itemList.length; i++) {
-            if (description === itemList[i].description && itemList[i].deleted == false ) {
+            var b =itemList[i].description.toLowerCase();
+            if (a == b && itemList[i].deleted == false ) {
                 alert("Item already exists in the list!");
-                return;
             }
         }
         const newItem = new shoppingItem(description);
