@@ -32,7 +32,7 @@ key.addEventListener('keydown', function(event){
         alert("Please enter an item!");}
     else {
         for (var i = 0; i < itemList.length; i++) {
-            if (description === itemList[i].description ) {
+            if (description === itemList[i].description && itemList[i].deleted == false ) {
                 alert("Item already exists in the list!");
                 return;
             }
@@ -76,6 +76,11 @@ function render(item) {
             item.setDone(!status);
             listItem.classList.toggle("marked");
             count();
+            let btn = document.getElementById("btn");
+            if(btn.textContent == "Show All" && listItem.classList.contains("marked")) 
+            {
+                hidden();
+            }
         })
         var ulList = document.getElementById("list");
         listItem.textContent = item.getdescription();
